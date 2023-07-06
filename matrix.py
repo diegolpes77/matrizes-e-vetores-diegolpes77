@@ -1,44 +1,73 @@
 """Módulo com as funções de manipulação de matrizes."""
 
-
+import math
 def soma(x: list[list[float]], y: list[list[float]]) -> list[list[float]] | None:
     """Soma duas matrizes"""
     # TODO: implementar
-    # a soma de duas matrizes [[1, 2, 4], [2, 3, 4]] + [[2, 3, 4], [1, 2, 4]] é [[3, 5, 8], [3, 5, 8]]
-    # a soma só pode ser realizada se as matrizes tem a mesma quantidade de linhas e colunas.
-    # caso contrário, deve retornar None
+    if len(x) != len(y) or len(x[0]) != len(y[0]):
+        return None
+
+    resultado = [[xi + yi for xi, yi in zip(xrow, yrow)] for xrow, yrow in zip(x, y)]
+    return resultado
 
 
 def multiplicação_por_escalar(matriz: list[list[float]], escalar: float) -> list[list[float]]:
     """Multiplica uma matriz por um escalar"""
     # TODO: implementar
-    # a multiplicação de uma matriz [[1, 2, 4], [2, 3, 4]] por um escalar 2 é [[2, 4, 8], [4, 6, 8]]
+    resultado = [[elemento * escalar for elemento in linha] for linha in matriz]
+    return resultado
 
 
 def multiplicação(x: list[list[float]], y: list[list[float]]) -> list[list[float]] | None:
     """Multiplica duas matrizes"""
     # TODO: implementar
-    # a multiplicação de duas matrizes [[1, 2, 4], [2, 3, 4]] por [[2, 3, 4], [1, 2, 4]] é [[10, 17, 28], [12, 20, 32]]
-    # a multiplicação só pode ser realizada se a quantidade de colunas da primeira matriz é igual a quantidade de linhas da segunda matriz.
-    # caso contrário, deve retornar None
+    if len(matriz1[0]) != len(matriz2):
+        return None
+
+    linhas_matriz1 = len(matriz1)
+    colunas_matriz1 = len(matriz1[0])
+    colunas_matriz2 = len(matriz2[0])
+
+    resultado = [[0] * colunas_matriz2 for _ in range(linhas_matriz1)]
+
+    for i in range(linhas_matriz1):
+        for j in range(colunas_matriz2):
+            for k in range(colunas_matriz1):
+                resultado[i][j] += matriz1[i][k] * matriz2[k][j]
+
+    return resultado
 
 
 def norma(x: list[list[float]]) -> float:
     """Calcula a norma de uma matriz"""
     # TODO: implementar
-    # a norma de uma matriz [[1, 2, 4], [2, 3, 4]] é 6.928203230275509
-    # ela consiste em calcular a raiz quadrada da soma dos quadrados dos elementos da matriz
-    # caso a matriz esteja vazia deve-se retornar 0
+    if not x:
+        return 0
+
+    soma_quadrados = sum([elem ** 2 for linha in x for elem in linha])
+    norma = math.sqrt(soma_quadrados)
+    return norma
 
 
 def é_simétrica(x: list[list[float]]) -> bool:
     """Verifica se uma matriz é simétrica"""
     # TODO: implementar
-    # uma matriz é simétrica se ela é quadrada e se ela é igual a sua transposta
-    # a transposta de uma matriz é a matriz que tem as linhas da matriz original como colunas e as colunas da matriz original como linhas
+    if not x:
+        return 0
+
+    soma_quadrados = sum([elem ** 2 for linha in x for elem in linha])
+    norma = math.sqrt(soma_quadrados)
+    return norma
 
 
 def transposta(x: list[list[float]]) -> list[list[float]]:
     """Calcula a transposta de uma matriz"""
     # TODO: implementar
-    # a transposta de uma matriz [[1, 2, 4], [2, 3, 4]] é [[1, 2], [2, 3], [4, 4]]
+    if not x:
+        return []
+
+    num_linhas = len(x)
+    num_colunas = len(x[0])
+
+    transposta = [[x[j][i] for j in range(num_linhas)] for i in range(num_colunas)]
+    return transposta
