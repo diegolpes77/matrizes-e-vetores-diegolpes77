@@ -11,14 +11,14 @@ def soma(x: list[list[float]], y: list[list[float]]) -> list[list[float]] | None
     return resultado
 
 
-def multiplicação_por_escalar(matriz: list[list[float]], escalar: float) -> list[list[float]]:
+def multiplicacao_por_escalar(matriz: list[list[float]], escalar: float) -> list[list[float]]:
     """Multiplica uma matriz por um escalar"""
     # TODO: implementar
     resultado = [[elemento * escalar for elemento in linha] for linha in matriz]
     return resultado
 
 
-def multiplicação(x: list[list[float]], y: list[list[float]]) -> list[list[float]] | None:
+def multiplicacao(x: list[list[float]], y: list[list[float]]) -> list[list[float]] | None:
     """Multiplica duas matrizes"""
     # TODO: implementar
     if len(matriz1[0]) != len(matriz2):
@@ -49,7 +49,7 @@ def norma(x: list[list[float]]) -> float:
     return norma
 
 
-def é_simétrica(x: list[list[float]]) -> bool:
+def eh_simetrica(x: list[list[float]]) -> bool:
     """Verifica se uma matriz é simétrica"""
     # TODO: implementar
     if not x:

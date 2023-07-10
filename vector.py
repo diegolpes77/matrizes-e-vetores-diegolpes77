@@ -20,7 +20,7 @@ def soma(x: list[float], y: list[float]) -> list[float] | None:
     return resultado
 
 
-def multiplicação_por_escalar(vetor: list[float], escalar: float) -> list[float]:
+def multiplicacao_por_escalar(vetor: list[float], escalar: float) -> list[float]:
     """Multiplica um vetor por um escalar"""
     # TODO: implementar
     resultado = [elemento * escalar for elemento in vetor]
@@ -53,7 +53,7 @@ def produto_vetorial(x: list[float], y: list[float]) -> list[float] | None:
     return resultado
 
 
-def produto_diádico(x: list[float], y: list[float]) -> list[list[float]] | None:
+def produto_diadico(x: list[float], y: list[float]) -> list[list[float]] | None:
     """Calcula o produto diádico de dois vetores"""
     # TODO: implementar
     if len(x) != len(y):
